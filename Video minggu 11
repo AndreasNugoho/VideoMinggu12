@@ -1,0 +1,45 @@
+#Andreas Nugroho
+#71200646
+
+#disediakan sebuah data yang berbentuk list yang terdiri dari bebrapa angka, buatlah sebuah program recursive
+#yang dapat menampilkan maksimum dan minimum nilai dari sebuah data yang ada.
+
+#input
+#sudah disediakan
+
+#proses
+#fungsi recursive
+
+#output
+#data min
+#data max
+
+def kecil(data, n):
+    #base case
+    #n = panjang data
+    if n == 1:
+        return data[0]
+    else:
+        return min(kecil(data[1:],n-1),data[0])
+def besar(data,n):
+    #base case
+    #n = panjang data
+    if n == 1:
+        return data[0]
+    else:
+        return max(besar(data[1:],n-1),data[0])
+
+#tanpa rekursif
+def kecil1(data,n):
+    hasil = data[0]
+    for i in range(1,n):
+        hasil = min(hasil,data[i])
+    return hasil
+
+data = [100,200,3,4,2,1,9,425]
+n = len(data)
+
+print("nilai terkecil pada data", kecil(data,n))
+print("nilai terbesar pada data", besar(data,n))
+#tanpa rekursif
+print("nilai terkecil dari data", kecil1(data,n))
